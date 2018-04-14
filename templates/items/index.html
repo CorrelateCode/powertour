@@ -1,0 +1,63 @@
+<div class="page-header">
+  <h1>Powertour</h1>
+</div>
+<!-- <ul class="list-unstyled list-inline">
+  <li><a href="<%= newItemsPath() %>" class="btn btn-primary">Create New Item</a></li>
+</ul> -->
+
+<!-- <div class="container-fluid">
+  <img class="mb-4" src="http://via.placeholder.com/800x80" width="100%" height="80">
+</div> -->
+
+<div class="container">
+  <div class="card-columns">
+      <%= for (item) in items { %>
+      <div class="card">
+          <img class="card-img-top" src="<%= item.Image %>" width=213 height=200 alt="Card image cap">
+          <div class="card-body">
+              <h5 class="card-title"><%= item.Name %></h5>
+              <p class="card-text"><%= item.Description %></p>
+              <p class="cart-text"><%= item.Price %></p>
+          </div>
+            <a href="<%= itemPath({ item_id: item.ID }) %>" class="btn btn-primary">Engage</a>
+          <div class="card-footer">
+              <small class="text-muted"><%= item.Term %></small>
+          </div>
+      </div>
+      <% } %>
+    </div>
+</div>
+
+
+<!-- <table class="table table-striped">
+  <thead>
+  <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Image</th>
+    <th>Term</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (item) in items { %>
+      <tr>
+      <td><%= item.Name %></td>
+        <td><%= item.Description %></td>
+        <td><%= item.Price %></td>
+        <td><%= item.Image %></td>
+        <td><%= item.Term %></td>
+        <td>
+          <div class="pull-right">
+            <a href="<%= itemPath({ item_id: item.ID }) %>" class="btn btn-info">View</a>
+            <a href="<%= editItemPath({ item_id: item.ID }) %>" class="btn btn-warning">Edit</a>
+            <a href="<%= itemPath({ item_id: item.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table> -->
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>
